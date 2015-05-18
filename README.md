@@ -1,69 +1,62 @@
-Pandas cookbook
+Pandas 手册
 ===============
 
-[pandas](http://pandas.pydata.org/) is a Python library for doing
-data analysis. It's really fast and lets you do exploratory work
-incredibly quickly.
+[pandas](http://pandas.pydata.org/) 是一个用于数据分析的Python库，它能让你快速处理一些探索性的工作。
 
-The goal of this cookbook is to give you some concrete examples for
-getting started with pandas. The [docs](http://pandas.pydata.org/pandas-docs/stable/)
-are really comprehensive. However, I've often had people
-tell me that they have some trouble getting started, so these are
-examples with real-world data, and all the bugs and weirdness
-that that entails.
+本手册的目的通过一些实际的例子来让你开始使用pandas。
+Pandas 的[帮助文档](http://pandas.pydata.org/pandas-docs/stable/)已经相当全面了。不过，经常会有人询问
+应该怎样上手。接下来我讲讲如何用pandas来处理一些真实世界中的数据，如你所料，这些数据包含各种bug和异常值。
 
-I'm working with 3 datasets right now
+接下来我会使用以下3个数据
 
 * 311 calls in New York
 * How many people were on Montréal's bike paths in 2012
 * Montreal's weather for 2012, hourly
 
-It comes with batteries (data) included, so you can try out all the
-examples right away.
+这些数据已经包含在本目录下。
 
-Table of Contents
+目录
 =================
 
 
-* [A quick tour of the IPython Notebook](http://nbviewer.ipython.org/github/jvns/pandas-cookbook/blob/master/cookbook/A%20quick%20tour%20of%20IPython%20Notebook.ipynb)
-  <br> Shows off IPython's awesome tab completion and magic functions.
-* [Chapter 1: Reading from a CSV](http://nbviewer.ipython.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%201%20-%20Reading%20from%20a%20CSV.ipynb)
-  <br> Reading your data into pandas is pretty much the easiest thing. Even when the encoding is wrong!
-* [Chapter 2: Selecting data & finding the most common complaint type](http://nbviewer.ipython.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%202%20-%20Selecting%20data%20&%20finding%20the%20most%20common%20complaint%20type.ipynb)
-  <br>It's not totally obvious how to select data from a pandas dataframe. Here I explain the basics (how to take slices and get columns)
-* [Chapter 3: Which borough has the most noise complaints? (or, more selecting data)](http://nbviewer.ipython.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%203%20-%20Which%20borough%20has%20the%20most%20noise%20complaints%20%28or%2C%20more%20selecting%20data%29.ipynb)
-  <br>Here we get into serious slicing and dicing and learn how to filter dataframes in complicated ways, really fast.
-* [Chapter 4: Find out on which weekday people bike the most with groupby and aggregate](http://nbviewer.ipython.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%204%20-%20Find%20out%20on%20which%20weekday%20people%20bike%20the%20most%20with%20groupby%20and%20aggregate.ipynb)
-  <br> The groupby/aggregate is seriously my favorite thing about pandas and I use it all the time. You should probably read this.
-* [Chapter 5: Combining dataframes and scraping Canadian weather data](http://nbviewer.ipython.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%205%20-%20Combining%20dataframes%20and%20scraping%20Canadian%20weather%20data.ipynb)
+* [简单介绍下Ipython Nodebook](http://nbviewer.ipython.org/github/jvns/pandas-cookbook/blob/master/cookbook/A%20quick%20tour%20of%20IPython%20Notebook.ipynb)
+  <br> 展示了如何使用IPython的tab自动补齐和魔法函数
+* [Chapter 1: 从CSV文件中读取数据](http://nbviewer.ipython.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%201%20-%20Reading%20from%20a%20CSV.ipynb)
+  <br> 将数据导入到pandas是相当容易的一件事，即使有编码错误也不是问题！
+* [Chapter 2: 选择和查找数据](http://nbviewer.ipython.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%202%20-%20Selecting%20data%20&%20finding%20the%20most%20common%20complaint%20type.ipynb)
+  <br>从pandas的DataFrame中选择数据有时候显得不那么直观,在这一部分我将解释一些基本的东西（比如怎么做切片操作，选取指定列）
+* [Chapter 3: “哪个区抱怨噪声的人最多？”(查找数据进阶)](http://nbviewer.ipython.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%203%20-%20Which%20borough%20has%20the%20most%20noise%20complaints%20%28or%2C%20more%20selecting%20data%29.ipynb)
+  <br>这部分将继续介绍如何对数据切片、切块以及过滤处理。
+* [Chapter 4: 用groupby和agg操作来查找人们骑自行车最多的一天是星期几](http://nbviewer.ipython.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%204%20-%20Find%20out%20on%20which%20weekday%20people%20bike%20the%20most%20with%20groupby%20and%20aggregate.ipynb)
+  <br> groupby/aggregate操作 是我最喜欢pandas的地方，我几乎无时不刻都在用它。这部分必读！
+* [Chapter 5: 融合DataFrame并抓取加拿大气候数据](http://nbviewer.ipython.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%205%20-%20Combining%20dataframes%20and%20scraping%20Canadian%20weather%20data.ipynb)
   <br>Here you get to find out if it's cold in Montreal in the winter (spoiler: yes). Web scraping with pandas is fun!
-* [Chapter 6: String operations! Which month was the snowiest?](http://nbviewer.ipython.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%206%20-%20String%20Operations-%20Which%20month%20was%20the%20snowiest.ipynb)
+  <br>这部分将会探索Montreal的冬天冷不冷（答案：冷！），用pandas来做网页抓取相当有意思。
+* [Chapter 6: String操作：哪个月下雪最多？](http://nbviewer.ipython.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%206%20-%20String%20Operations-%20Which%20month%20was%20the%20snowiest.ipynb)
   <br> Strings with pandas are great. It has all these vectorized string operations and they're the best. We will turn a bunch of strings containing "Snow" into vectors of numbers in a trice.
-* [Chapter 7: Cleaning up messy data](http://nbviewer.ipython.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%207%20-%20Cleaning%20up%20messy%20data.ipynb)
-  <br> Cleaning up messy data is never a joy, but with pandas it's easier &lt;3
-* [Chapter 8: Parsing Unix timestamps](http://nbviewer.ipython.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%208%20-%20How%20to%20deal%20with%20timestamps.ipynb)
-  <br> This is basically a quick trick that took me 2 days to figure out.
-* [Chapter 9 - Loading data from SQL databases](http://nbviewer.ipython.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%209%20-%20Loading%20data%20from%20SQL%20databases.ipynb)
-  <br> How to load data from an SQL database into Pandas, with examples using SQLite3, PostgreSQL, and MySQL.
+  <br> pandas对string的操作非常好，它包含所有向量化的string操作。这部分内容将一系列包含Snow的字符串转换成向量化的数值来表示。
+* [Chapter 7: 处理脏数据](http://nbviewer.ipython.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%207%20-%20Cleaning%20up%20messy%20data.ipynb)
+  <br> 处理脏数据可不轻松，不过对于pandas来说，那就是另外一回事了～
+* [Chapter 8: 解析Unix下的时间戳](http://nbviewer.ipython.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%208%20-%20How%20to%20deal%20with%20timestamps.ipynb)
+  <br> 这个小技巧花了我两天才弄明白。。。
+* [Chapter 9 - 从SQL数据库中导入数据](http://nbviewer.ipython.org/github/jvns/pandas-cookbook/blob/master/cookbook/Chapter%209%20-%20Loading%20data%20from%20SQL%20databases.ipynb)
+  <br> 本部分将介绍如何从 SQLite3, PostgreSQL及MySQL中导入数据到pandas
 
-How to use this cookbook
+怎么使用Panda手册
 ========================
 
-You'll need an up-to-date version of IPython Notebook (&gt;= 3.0) and
-pandas (&gt;=0.13) for this to work properly
+首先，你需要更新下IPython Notebook(&gt;= 3.0) 以及 pandas(&gt;=0.13)
 
-You can get these using `pip`:
+用pip可以完成以上操作：
 
 ```
 pip install ipython pandas numpy tornado pyzmq jinja2 matplotlib
 ```
 
-This can be difficult to get set up and require you to compile
-a whole bunch of things. I instead use and recommend
-[Anaconda](https://store.continuum.io/), which is a Python distribution which
-will give you everything you need. It's free and open source.
+编译和配置这些有时候挺繁琐的，我自己是用的
+[Anaconda](https://store.continuum.io/),这个软件把几乎所有你能想到的库都包含了，并且是免费和开源的。
 
-Once you have pandas and IPython, you can get going!
+安装好IPython和pandas后就可以开始啦～
 
 ```
 git clone https://github.com/jvns/pandas-cookbook.git
@@ -71,23 +64,22 @@ cd pandas-cookbook/cookbook
 ipython notebook
 ```
 
-A tab should open up in your browser at `http://localhost:8888`
+执行完以上命令后，你的浏览器会自动打开一个地址为 `http://localhost:8888`的页面。
 
-Happy pandas!
+尽情享受吧～
 
 Contribute!
 ===========
 
-If you see something wrong, or there's something you'd like to learn that I haven't
-explained here, or there's something you know about that you would like to share,
-create an issue! Send me email! Send a pull request!
+如果你发现某些地方有错误，或者是你想学习一些我在这里没有讲到的东西，
+又或者是你想分享些东西，赶紧发个issue，或者发邮件，pull request都行！
 
 
 TODO
 ====
 
-* Joining dataframes
-* Using stack/unstack
+* join 操作
+* 使用 stack/unstack
 * ???
 
 
