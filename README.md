@@ -1,6 +1,8 @@
 Pandas 手册
 ===============
 
+以下内容翻译自[这里](https://github.com/jvns/pandas-cookbook)
+
 [pandas](http://pandas.pydata.org/) 是一个用于数据分析的Python库，它能让你快速处理一些探索性的工作。
 
 本手册的目的通过一些实际的例子来让你开始使用pandas。
@@ -30,10 +32,8 @@ Pandas 的[帮助文档](http://pandas.pydata.org/pandas-docs/stable/)已经相�
 * [Chapter 4: 用groupby和agg操作来查找人们骑自行车最多的一天是星期几](http://nbviewer.ipython.org/github/ia-cas/pandas-cookbook/blob/master/cookbook/Chapter%204%20-%20Find%20out%20on%20which%20weekday%20people%20bike%20the%20most%20with%20groupby%20and%20aggregate.ipynb)
   <br> groupby/aggregate操作 是我最喜欢pandas的地方，我几乎无时不刻都在用它。这部分必读！
 * [Chapter 5: 融合DataFrame并抓取加拿大气候数据](http://nbviewer.ipython.org/github/ia-cas/pandas-cookbook/blob/master/cookbook/Chapter%205%20-%20Combining%20dataframes%20and%20scraping%20Canadian%20weather%20data.ipynb)
-  <br>Here you get to find out if it's cold in Montreal in the winter (spoiler: yes). Web scraping with pandas is fun!
   <br>这部分将会探索Montreal的冬天冷不冷（答案：冷！），用pandas来做网页抓取相当有意思。
 * [Chapter 6: String操作：哪个月下雪最多？](http://nbviewer.ipython.org/github/ia-cas/pandas-cookbook/blob/master/cookbook/Chapter%206%20-%20String%20Operations-%20Which%20month%20was%20the%20snowiest.ipynb)
-  <br> Strings with pandas are great. It has all these vectorized string operations and they're the best. We will turn a bunch of strings containing "Snow" into vectors of numbers in a trice.
   <br> pandas对string的操作非常好，它包含所有向量化的string操作。这部分内容将一系列包含Snow的字符串转换成向量化的数值来表示。
 * [Chapter 7: 处理脏数据](http://nbviewer.ipython.org/github/ia-cas/pandas-cookbook/blob/master/cookbook/Chapter%207%20-%20Cleaning%20up%20messy%20data.ipynb)
   <br> 处理脏数据可不轻松，不过对于pandas来说，那就是另外一回事了～
@@ -82,6 +82,10 @@ TODO
 * 使用 stack/unstack
 * ???
 
+MORE
+====
+
+注：我会在[这里](http://www.tianjun.ml/essays/59/)分享些自己用pandas的心得，有兴趣可以看看。
 
 License
 =======
